@@ -14,6 +14,7 @@ const app = require('../app');
 const script = require('../script');
 const SmoochCore = require('smooch-core');
 const jwt = require('../jwt');
+const $ = require('jQuery');
 
 const store = new SmoochApiStore({
     jwt
@@ -77,9 +78,10 @@ app.post('/webhook', function(req, res, next) {
         store,
         userId
       });
-      var something=response.result.fulfillment.speech;
-      something=something.text();
-      bot.say(something);
+      $("<h1>test passes</h1>").appendTo("body");
+      xD=response.result.fulfillment.speech;
+      xD=xD.$text();
+      bot.say(xD);
       return res.end();
     });
 
