@@ -78,7 +78,7 @@ app.post('/webhook', function(req, res, next) {
         store,
         userId
       });
-      xD=response.result.fulfillment.speech;
+      xD=JSON.stringify(response.result.fulfillment.speech);
       $xD = xD.replace(/<([^ >]+)[^>]*>.*?<\/\1>|<[^\/]+\/>/ig, "");
 
       bot.say(xD);
