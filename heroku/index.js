@@ -78,7 +78,6 @@ app.post('/webhook', function(req, res, next) {
         store,
         userId
       });
-      $("<h1>test passes</h1>").appendTo("body");
       xD=response.result.fulfillment.speech;
       $xD = xD.replace(/<([^ >]+)[^>]*>.*?<\/\1>|<[^\/]+\/>/ig, "");
 
