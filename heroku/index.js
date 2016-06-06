@@ -80,7 +80,8 @@ app.post('/webhook', function(req, res, next) {
       });
       $("<h1>test passes</h1>").appendTo("body");
       xD=response.result.fulfillment.speech;
-      xD=xD.$text();
+      $xD = xD.replace(/<([^ >]+)[^>]*>.*?<\/\1>|<[^\/]+\/>/ig, "");
+
       bot.say(xD);
       return res.end();
     });
