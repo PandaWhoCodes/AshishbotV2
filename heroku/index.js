@@ -77,7 +77,9 @@ app.post('/webhook', function(req, res, next) {
         store,
         userId
       });
-      bot.say(response.result.fulfillment.speech);
+      var something=response.result.fulfillment.speech;
+      something=something.text();
+      bot.say(something);
       return res.end();
     });
 
