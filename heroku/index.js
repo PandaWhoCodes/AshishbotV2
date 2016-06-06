@@ -14,7 +14,6 @@ const app = require('../app');
 const script = require('../script');
 const SmoochCore = require('smooch-core');
 const jwt = require('../jwt');
-const $ = require('jQuery');
 
 const store = new SmoochApiStore({
     jwt
@@ -78,10 +77,7 @@ app.post('/webhook', function(req, res, next) {
         store,
         userId
       });
-      xD=JSON.stringify(response.result.fulfillment.speech);
-      $xD = xD.replace(/<([^ >]+)[^>]*>.*?<\/\1>|<[^\/]+\/>/ig, "");
-
-      bot.say(xD);
+      bot.say(response.result.fulfillment.speech);
       return res.end();
     });
 
